@@ -1,0 +1,698 @@
+<html>
+
+    <head>
+
+        <title>Search</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://snatchbot.me/sdk/webchat.css" rel="stylesheet" type="text/css">
+        
+        <style>
+            body 
+            {
+                font-family: Arial, Helvetica, sans-serif; 
+                background-image:url(https://images.wallpaperscraft.com/image/airplane_clouds_flight_120632_3840x2400.jpg);
+               background-repeat: no-repeat;
+			   background-size: cover;
+			   background-attachment: fixed;
+               width:auto;
+                min-width:360px;
+            }
+            
+            #head
+            {
+                background: linear-gradient(to right,#fc0259,#118cff);
+                text-align: center;
+                opacity: 0.7;
+                color: white;
+                font-family: 'Chela One', cursive;
+                position:relative;
+                top:-41px;
+            }
+            
+           .carousel
+			{    
+         
+                height:700;
+                margin-top: 60px;
+			}
+            
+            #back
+            {
+                position: relative;
+                top:-1px;
+            }
+			
+            .colour
+            {
+                color:white;
+                position:relative;
+                top:50px;
+            }
+     
+            #bsp
+            {
+                margin-right:200px;
+                position:fixed;
+                top:650px;
+                left:87%;
+                width:90px;
+                height:90px;
+                border-radius: 45px;
+                background-image: url(https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif); 
+                background-repeat: no-repeat;
+                background-size: 90px 90px;
+            }
+          
+            .tt
+            {
+                position:relative;
+                top:80px;
+            }
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                background-color: #f44336;
+            }
+            /* Center the image and position the close button */
+            .imgcontainer {
+                text-align: center;
+                margin: 10px 0 12px 0;
+                position: relative;
+            }
+            img.avatar {
+                width: 40%;
+                border-radius: 50%;
+            }
+            
+            .container {
+                padding: 16px;
+            }
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+            
+            .modal
+            {
+                width:750px;
+                height: 300px;
+                margin-top:150px;
+                background-color:cornflowerdarkblue;
+            }
+            /* The Modal (background) */
+            .modal2 {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                padding-top: 60px;
+            }
+            /* Modal Content/Box */
+            .modal-content1
+            {
+                background-color: #fefefe;
+                margin: 0% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+                border: 1px solid #888;
+                width: 80%; 
+                float:right;
+                /* Could be more or less, depending on screen size */
+            }
+            /* The Close Button (x) */
+            .close 
+            {
+                position: absolute;
+                right: 25px;
+                top: 0;
+                color: #000;
+                font-size: 35px;
+                font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+            /* Add Zoom Animation */
+            .animate 
+            {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s;
+                width:400px;height:500px;
+                border: solid;
+                border-radius: 10px;
+                background-image: url(https://cdn.pixabay.com/photo/2016/04/07/21/14/chat-1314741_960_720.jpg););
+                background-repeat: no repeat;
+                background-size: 400px 500px ;
+                margin-top: 50px;
+                margin-right:20px;
+            }
+            @-webkit-keyframes animatezoom {
+                from {-webkit-transform: scale(0)} 
+                to {-webkit-transform: scale(1)}
+            }
+            @keyframes animatezoom {
+                from {transform: scale(0)} 
+                to {transform: scale(1)}
+            }
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) 
+            {
+                span.psw {
+                   display: block;
+                   float: none;
+                }
+                .cancelbtn {
+                   width: 100%;
+                }
+            }
+            
+            .page-footer
+            {
+                margin-top:20%;
+                background-color: darkblue;
+            }
+            
+           .fa-github
+            {
+                font-size:60px;
+                margin-left:45%;
+                margin-top: 0%;
+                color:black;
+            }
+            
+            span
+            {
+               position: relative;
+                left: 47%;
+                font-size: 30px;
+            }
+            
+            .row
+            {
+                position: relative;
+                left:-50px;
+            }
+            
+            @media screen and (max-width:399px)
+            {
+                span
+                {
+                    position: relative;
+                    left:20%;
+                }
+                .f
+                {
+                    position: relative;
+                    left:20%;
+                }
+                .fa-github
+                {
+                    font-size:60px;
+                    margin-left:45%;
+                    margin-top: 0%;
+                    color:black;
+                }
+                .row
+                {
+                    position: relative;
+                    left:-10%;
+                    top:-10px;
+                }
+                .search
+                {
+                    position: relative;
+                    top:-40px;
+                    left:-13%;
+                }
+                
+                .show
+                {
+                    position: relative;
+                    top:-80px;
+                    left:-11.5%;
+                }
+                 
+                #t1
+                {
+                    position:relative;
+                    left:-60px;
+                }
+                
+                #t2
+                {
+                    position:relative;
+                    left:20px;
+                }
+                
+                #size
+                {
+                    width: 125px;
+                }
+                
+                .git
+                {
+                    position:relative;
+                    left:-5px;
+                }
+                
+                #back
+                {
+                    position: relative;
+                    top: -9px;
+                }
+                .sidenav
+                {
+                    background:darkblue;
+                }
+                h8
+                {
+                    color:white;
+                }
+            }
+            
+            @media screen and (min-width:400px) and (max-width: 500px)
+            {
+                span
+                {
+                    position: relative;
+                    left:20%;
+                }
+                .f
+                {
+                    position: relative;
+                    left:20%;
+                }
+                .fa-github
+                {
+                    font-size:60px;
+                    margin-left:45%;
+                    margin-top: 0%;
+                    color:black;
+                }
+                .row
+                {
+                    position: relative;
+                    left:-10%;
+                    top:-10px;
+                }
+                .search
+                {
+                    position: relative;
+                    top:-40px;
+                    left:-13%;
+                }
+                
+                .show
+                {
+                    position: relative;
+                    top:-80px;
+                    left:-11.5%;
+                }
+               
+                #t1
+                {
+                    position:relative;
+                    left:-25px;
+                }
+                
+                #t2
+                {
+                    position:relative;
+                    left:20px;
+                }
+                
+                .git
+                {
+                    position:relative;
+                    left:-5px;
+                }
+                
+                #size
+                {
+                    width: 125px;
+                }
+                #back
+                {
+                    position: relative;
+                    top: -9px;
+                }
+                .sidenav
+                {
+                    background-color:darkblue;
+                }
+                h8
+                {
+                    color:white;
+                }
+                
+               
+            }
+            
+             @media screen and (min-width:501px) and (max-width: 760px)
+            {
+                body
+                {
+                    width:106%;
+                }
+                span
+                {
+                    position: relative;
+                    left:30%;
+                }   
+                footer
+                {
+                    width:100%;
+                }
+                .f
+                {
+                    position: relative;
+                    left:15%;
+                }
+                .fa-github
+                {
+                    font-size:60px;
+                    margin-left:45%;
+                    margin-top: 0%;
+                    color:black;
+                }
+                .row
+                {
+                    position: relative;
+                    top:-10px;
+                }
+                .search
+                {
+                    position: relative;
+                    top:-40px;
+                    left:-13%;
+                }
+                
+                .show
+                {
+                    position: relative;
+                    top:-80px;
+                    left:-13%;
+                }
+                
+                #back
+                {
+                    position: relative;
+                    top: -9px;
+                }
+                .sidenav
+                {
+                    background-color:darkblue;
+                }
+                h8
+                {
+                    color:white;
+                } 
+            }
+            
+            @media screen and (min-width:761px) and (max-width: 1275px)
+            {
+                span
+                {
+                    position: relative;
+                    left:40%;
+                }   
+                footer
+                {
+                    width:100%;
+                }
+                .f
+                {
+                    position: relative;
+                    left:10%;
+                }
+                .fa-github
+                {
+                    font-size:60px;
+                    margin-left:45%;
+                    margin-top: 0%;
+                    color:black;
+                }
+                .search
+                {
+                    position: relative;
+                    top:-40px;
+                    left:-10%;
+                }
+                
+                .show
+                {
+                    position: relative;
+                    top:-80px;
+                    left:-10%;
+                }
+                .sidenav
+                {
+                    background-color:darkblue;
+                }
+                h8
+                {
+                    color:white;
+                } 
+            }
+            
+            @media screen and (min-width:1101px) and (max-width: 1300px)
+			{
+            
+                .carousel
+                {
+                    height:95%;
+                }
+                
+                .hgh
+                {
+                    height:890px;
+                }
+                
+            }
+           
+        </style>
+    
+    </head>
+    
+    <body>
+            
+           
+        <nav style="position: fixed;left:65px;margin:-65;z-index:2;background-color: darkblue">
+            <div class="nav-wrapper">
+                <span>AIRLINES</span>
+                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('chatHome')}}">Home</a></li>
+                    <li><a href="{{ url_for('chat1')}}">Search</a></li>
+                    <li><a href="{{ url_for('chat2')}}">Flight</a></li>
+                    <li><a href="{{ url_for('chat3')}}">Passenger</a></li>
+                    <li><a href="{{ url_for('chat4')}}">Booking</a></li>
+                    <li><a href="{{ url_for('log')}}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('chatHome')}}"><h8>Home</h8></a></li>
+            <li><a href="{{ url_for('chat1')}}"><h8>Search</h8></a></li>
+            <li><a href="{{ url_for('chat2')}}"><h8>Flight</h8></a></li>
+            <li><a href="{{ url_for('chat3')}}"><h8>Passenger</h8></a></li>
+            <li><a href="{{ url_for('chat4')}}"><h8>Booking</h8></a></li>
+            <li><a href="{{ url_for('log')}}"><h8>Logout</h8></a></li>
+        </ul>
+
+        <div id="back">
+            
+            <div class="carousel carousel-slider" data-indicators="true">
+               
+                 
+                <a class="carousel-item" href="#one!"><img class="hgh" src="https://wallpapercave.com/wp/gVij6GH.jpg" height="700px"></a>
+                <a class="carousel-item" href="#two!"><img class="hgh" src="https://wallpapercave.com/wp/s9nIMMH.jpg" height="700px"></a>
+                <a class="carousel-item" href="#three!"><img class="hgh" src="https://www.hdwallpapers.in/download/aeroplane-HD.jpg" height="700px"></a>
+                <a class="carousel-item" href="#four!"><img class="hgh" src="https://images.wallpaperscraft.com/image/airplane_sky_flight_clouds_height_118356_1920x1080.jpg" height="700px"></a>
+                <a class="carousel-item" href="#five"><img class="hgh" src="https://www.themanufacturer.com/wp-content/uploads/2015/09/Although-lightning-strikes-are-rarely-the-primary-cause-of-accidents-they-can-cause-costly-delays-and-service-interruptions-image-courtesy-of-DFC.jpg" height="700px"></a>
+                <a class="carousel-item" href="#six"><img class="hgh" src="https://wallpapercave.com/wp/baHpXzf.jpg" height="700px"></a>
+                
+            </div>
+
+        </div>
+           
+           
+        <div class="container">
+        <div style="width:60%;position:relative;left:31%;top:20px;">           
+                <div class="row colour">
+                    <form class="col s12" method='post' action='/chat11'>
+                        <div class="row" style="">
+                            <div class="input-field col s6" id="t1" style="color:black">
+                                <input id="size"  type="text" style="font-size:20px;" name="source" class="validate" required>
+                                <label for="first_name" ><strong class="src" style="color:black;font-size: 130%">Source</strong></label>
+                            </div>
+                            <div class="input-field col s6" id="t2">
+                                <input id="size" type="text" style="font-size:px;" name="destination" class="validate" required>
+                                <label for="last_name"><strong class="dst" style="color:black;font-size:130%;">Destination</strong></label>
+                            </div>
+                        </div>
+                        <div class="search">
+                            <button value="login" class="button" style="width:125px;height:40px;vertical-align:middle;position:relative;left:28%;top:30px;border-radius:5px;background: navy;"><h7 style="font-size: 18px;color:white">SEARCH</h7></button>
+                         </div>
+                          <div class="show">
+                              <a style="position: relative;top:100px;left:28%;background-color:navy;width:120px;" class="waves-effect waves-light btn modal-trigger" href="#modal1">Show</a>
+                        </div>
+                    </form>
+                </div>            
+            </div>         
+        </div>
+        
+        <div>
+             
+          
+                <div id="modal1" class="modal">
+                   <div class="container">  
+                     <div class="modal-content responsive-table">
+                                
+                        <table class="striped" class="highlight" class="centered">
+                            <thead>
+                                <tr>
+                                    <th>Flight name</th>
+                                    <th>Flight Code</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>f_date</th>
+                                    <th>f_time</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% if row is defined %}
+                                {% for rows in row %}
+                                <tr>
+                                    <td>{{rows[0]}}</td>
+                                    <td>{{rows[1]}}</td>
+                                    <td>{{rows[2]}}</td>
+                                    <td>{{rows[3]}}</td>
+                                    <td>{{rows[4]}}</td>
+                                    <td>{{rows[5]}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                                </tbody>
+                              </table>
+
+                        </div>
+                
+                    <a href="#!" style="position:relative;margin-left:40%;top:40px;background-color: darkblue;width:100px" class="modal-close waves-effect waves-green btn">Ok</a>
+                    </div>
+                </div>
+            
+            </div>
+           
+           
+            <footer class="page-footer">
+              <div class="container">
+                  <a class="fa fa-github" href="https://github.com/nanduladeepak/airline-system.git"><h6 class="git" style="margin-left: 1.5%">Github</h6></a>
+                </div>
+            </footer>
+           
+           
+           
+            <script>
+            
+                var modal = document.getElementById('id01');
+                window.onclick = function(event) 
+                {
+                    if (event.target == modal)
+                    {
+                        modal.style.display = "none";
+                    }
+                }
+                
+            </script>
+            
+             <script>
+            
+                var modal = document.getElementById('id02');
+                window.onclick = function(event) 
+                {
+                    if (event.target == modal)
+                    {
+                        modal.style.display = "none";
+                    }
+                }
+                
+            </script>
+
+
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js "></script>
+            <script>
+                $(document).ready(function() {
+                $('input#input_text, textarea#textarea2').characterCounter();
+                });       
+            </script>
+            
+            <script> 
+                
+                $('.carousel.carousel-slider').carousel({
+   
+                indicators: true
+                
+                });
+                
+                $(document).ready(function(){
+                    
+                    setInterval(function(){
+                        
+                    $('.carousel').carousel('next')
+                } , 5000)
+                
+                });
+          
+            </script>
+            
+            <script>
+        
+                $(document).ready(function(){
+                $('select').formSelect();
+                });
+                
+            </script>
+            
+            
+            <script>
+            
+                $(document).ready(function(){
+                $('.modal').modal();
+                });
+            
+            </script>
+            
+            <script>
+                
+                $(document).ready(function(){
+                $('.sidenav').sidenav();
+                });
+                
+            </script>
+            <script src="https://snatchbot.me/sdk/webchat.min.js"></script>
+            <script> 
+                Init('?botID=59848&appID=webchat', 450, 600, 'https://dvgpba5hywmpo.cloudfront.net/media/image/MLsOLyg82Hd3ss2vkAUoTha1j', 'bubble', '#789BA8', 80, 80, 62.99999999999999, '', '1', '#1E9BB0', '#000000', 0); 
+            </script>
+
+    </body>
+    
+</html>
